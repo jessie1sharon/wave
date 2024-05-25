@@ -7,7 +7,7 @@ import tiktoken
 # from config import OPENAI_API_KEY
 
 # set the api for chatcpt
-openai.api_key = 'sk-proj-U61bfJCZ2rHE7JFXxBN9T3BlbkFJdCwRDhqNqc6bt2deVQHJ'
+openai.api_key = 'sk-proj-S4eQ74iJFdUbPAogRgcKT3BlbkFJAFRa3xOjjDpmsCiHMYTl'
 
 
 def read_file_content(file_path1):
@@ -18,6 +18,7 @@ def read_file_content(file_path1):
 def send(
     prompt=None,
     text_data=None,
+    instruction_data=None,
     chat_model="gpt-3.5-turbo",
     model_token_limit=8192,
     max_tokens=2500,
@@ -48,7 +49,7 @@ def send(
     token_integers = tokenizer.encode(text_data)
 
     # Split the token integers into chunks based on max_tokens
-    chunk_size = max_tokens - len(tokenizer.encode(prompt))
+    chunk_size = model_token_limit - len(tokenizer.encode(prompt))
     chunks = [
         token_integers[i: i + chunk_size]
         for i in range(0, len(token_integers), chunk_size)
@@ -56,17 +57,22 @@ def send(
 
     # Decode token chunks back to strings
     chunks = [tokenizer.decode(chunk) for chunk in chunks]
-
     responses = []
     messages = [
-        {"role": "user", "content": prompt},
         {
             "role": "user",
-            "content": "To provide the context for the above prompt, I will send you text in parts. When I am "
+            "content": "To provide the context for the prompt below, I will send you text in parts. When I am "
                        "finished, I will tell you 'ALL PARTS SENT'. Do not answer until you have received all"
                        " the parts.",
         },
+        {"role": "user", "content": prompt},
     ]
+
+    first = messages.append({"role": "user", "content": instruction_data})
+    # response = openai.ChatCompletion.create(model=chat_model, messages=messages)
+    # chatgpt_response = response.choices[0].message["content"].strip()
+    # responses.append(chatgpt_response)
+    messages.pop(2)
 
     for chunk in chunks:
         messages.append({"role": "user", "content": chunk})
@@ -76,14 +82,16 @@ def send(
             sum(len(tokenizer.encode(msg["content"])) for msg in messages)
             > model_token_limit
         ):
-            messages.pop(1)  # Remove the oldest chunk
-
-        # client = OpenAI()
-        response = openai.ChatCompletion.create(model=chat_model, messages=messages)
-        chatgpt_response = response.choices[0].message["content"].strip()
-        responses.append(chatgpt_response)
+            breakpoint()
+            messages.pop(2)  # Remove the oldest chunk
+            breakpoint()
+        breakpoint()
+        # response = openai.ChatCompletion.create(model=chat_model, messages=messages)
+        # chatgpt_response = response.choices[0].message["content"].strip()
+        # responses.append(chatgpt_response)
 
     # Add the final "ALL PARTS SENT" message
+    breakpoint()
     messages.append({"role": "user", "content": "ALL PARTS SENT"})
     response = openai.ChatCompletion.create(model=chat_model, messages=messages)
     final_response = response.choices[0].message["content"].strip()
@@ -96,20 +104,22 @@ if __name__ == "__main__":
     # Specify the path to your file
     file_path = "brain_massage.txt"
 
-    # Read the content of the file
+    instruction_path = "instructions.txt"
+
+    # Read the content of the files
     file_content = read_file_content(file_path)
+    instruction_content = read_file_content(instruction_path)
 
     # Define your prompt
     prompt_text = "Write me a file that I can transfer to a Raspberry Pi chip that will contain operating " \
                   "instructions for the capsule where you can control the lights and temperature and the " \
-                  "frequencies and smells that are activated in the capsule, at suitable times for a text file" \
-                  " that dubs the capsule"  # together with a text file that describes when to activate everything
+                  "frequencies and smells that are activated in the capsule, at suitable times according to a text" \
+                  " file that dubs the capsule, together with instructions that describes when to activate everything" \
+                  ". first the instructions and then the text file"
 
     # Send the file content to ChatGPT
-    responses1 = send(prompt=prompt_text, text_data=file_content)
+    answers = send(prompt=prompt_text, text_data=file_content, instruction_data=instruction_content)
 
     # Print the responses
-    for response1 in responses1:
-        print(response1)
-
-
+    for answer in answers:
+        print(answer)
