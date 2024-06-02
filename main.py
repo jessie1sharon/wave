@@ -49,7 +49,7 @@ def send(
     token_integers = tokenizer.encode(text_data)
 
     # Split the token integers into chunks based on max_tokens
-    chunk_size = model_token_limit - len(tokenizer.encode(prompt))
+    chunk_size = model_token_limit - len(tokenizer.encode(prompt)) - (2 * len("\"role\": \"user\", \"content\": "))
     chunks = [
         token_integers[i: i + chunk_size]
         for i in range(0, len(token_integers), chunk_size)
@@ -68,27 +68,27 @@ def send(
         {"role": "user", "content": prompt},
     ]
 
-    first = messages.append({"role": "user", "content": instruction_data})
+    first = messages.append({"role": "user", "content": instruction_data})  # send the API the instruction file
     # response = openai.ChatCompletion.create(model=chat_model, messages=messages)
     # chatgpt_response = response.choices[0].message["content"].strip()
     # responses.append(chatgpt_response)
+    breakpoint()
     messages.pop(2)
 
     for chunk in chunks:
         messages.append({"role": "user", "content": chunk})
-
+        onee = sum(len(tokenizer.encode(msg["content"])) for msg in messages)  # to check size of content
         # Check if total tokens exceed the model's limit and remove oldest chunks if necessary
         while (
             sum(len(tokenizer.encode(msg["content"])) for msg in messages)
             > model_token_limit
         ):
-            breakpoint()
-            messages.pop(2)  # Remove the oldest chunk
-            breakpoint()
+            messages.pop(0)  # Remove the oldest chunk
         breakpoint()
         # response = openai.ChatCompletion.create(model=chat_model, messages=messages)
         # chatgpt_response = response.choices[0].message["content"].strip()
         # responses.append(chatgpt_response)
+        messages.pop(2)
 
     # Add the final "ALL PARTS SENT" message
     breakpoint()
@@ -117,7 +117,7 @@ if __name__ == "__main__":
                   " file that dubs the capsule, together with instructions that describes when to activate everything" \
                   ". first the instructions and then the text file"
 
-    # Send the file content to ChatGPT
+    # Send the file content & instruction to ChatGPT
     answers = send(prompt=prompt_text, text_data=file_content, instruction_data=instruction_content)
 
     # Print the responses
