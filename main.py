@@ -30,7 +30,7 @@ def send(
     Args:
     - prompt (str, optional): The prompt to guide the model's response.
     - text_data (str, optional): Additional text data to be included.
-    - max_tokens (int, optional): Maximum tokens for each API call. Default is 2500.
+    - instruction_data (str, optional): Additional text data to be included.
 
     Returns:
     - list or str: A list of model's responses for each chunk or an error message.
