@@ -1,13 +1,9 @@
-import os
-# import numpy as np
 import openai
-# from openai import OpenAI
 # from chatgptmax import send
 import tiktoken
-# from config import OPENAI_API_KEY
 
 # set the api for chatcpt
-openai.api_key = 'sk-proj-S4eQ74iJFdUbPAogRgcKT3BlbkFJAFRa3xOjjDpmsCiHMYTl'
+openai.api_key = 'sk-proj-KT3Qo5W5cIF8l5DnJxINT3BlbkFJclvUJVTsCF3ccNcefcgr'
 
 
 def read_file_content(file_path1):
@@ -30,7 +26,7 @@ def send(
     Args:
     - prompt (str, optional): The prompt to guide the model's response.
     - text_data (str, optional): Additional text data to be included.
-    - instruction_data (str, optional): Additional text data to be included.
+    - max_tokens (int, optional): Maximum tokens for each API call. Default is 2500.
 
     Returns:
     - list or str: A list of model's responses for each chunk or an error message.
@@ -42,6 +38,9 @@ def send(
     if not text_data:
         return "Error: Text data is missing. Please provide some text data."
 
+    start_phrase = "To provide the context for the above prompt, I will send you text in parts. When I am " \
+                   "finished, I will tell you 'ALL PARTS SENT'. Do not answer until you have received all" \
+                   " the parts."
     # Initialize the tokenizer
     tokenizer = tiktoken.encoding_for_model(chat_model)
 
@@ -49,7 +48,8 @@ def send(
     token_integers = tokenizer.encode(text_data)
 
     # Split the token integers into chunks based on max_tokens
-    chunk_size = model_token_limit - len(tokenizer.encode(prompt)) - (2 * len("\"role\": \"user\", \"content\": "))
+    chunk_size = max_tokens - len(tokenizer.encode(prompt)) - \
+                 len(tokenizer.encode(start_phrase)) - 3 * (len(tokenizer.encode("\"role\": \"user\", \"content\": ")))
     chunks = [
         token_integers[i: i + chunk_size]
         for i in range(0, len(token_integers), chunk_size)
@@ -57,45 +57,51 @@ def send(
 
     # Decode token chunks back to strings
     chunks = [tokenizer.decode(chunk) for chunk in chunks]
+
     responses = []
     messages = [
+        {"role": "user", "content": prompt},
         {
             "role": "user",
-            "content": "To provide the context for the prompt below, I will send you text in parts. When I am "
+            "content": "To provide the context for the above prompt, I will send you text in parts. When I am "
                        "finished, I will tell you 'ALL PARTS SENT'. Do not answer until you have received all"
                        " the parts.",
         },
-        {"role": "user", "content": prompt},
     ]
 
     first = messages.append({"role": "user", "content": instruction_data})  # send the API the instruction file
-    # response = openai.ChatCompletion.create(model=chat_model, messages=messages)
-    # chatgpt_response = response.choices[0].message["content"].strip()
-    # responses.append(chatgpt_response)
-    breakpoint()
+    response = openai.ChatCompletion.create(model=chat_model, messages=messages)
+    chatgpt_response = response.choices[0].message["content"].strip()
+    responses.append(chatgpt_response)
+    # print(messages)
+    # print(chatgpt_response)
     messages.pop(2)
+    messages.pop(1)
+    messages.pop(0)
 
     for chunk in chunks:
         messages.append({"role": "user", "content": chunk})
-        onee = sum(len(tokenizer.encode(msg["content"])) for msg in messages)  # to check size of content
+
         # Check if total tokens exceed the model's limit and remove oldest chunks if necessary
         while (
             sum(len(tokenizer.encode(msg["content"])) for msg in messages)
             > model_token_limit
         ):
-            messages.pop(0)  # Remove the oldest chunk
-        breakpoint()
-        # response = openai.ChatCompletion.create(model=chat_model, messages=messages)
-        # chatgpt_response = response.choices[0].message["content"].strip()
-        # responses.append(chatgpt_response)
-        messages.pop(2)
+            messages.pop(1)  # Remove the oldest chunk
+
+        response = openai.ChatCompletion.create(model=chat_model, messages=messages)
+        chatgpt_response = response.choices[0].message["content"].strip()
+        responses.append(chatgpt_response)
+        # print(messages)
+        messages.pop(0)
 
     # Add the final "ALL PARTS SENT" message
-    breakpoint()
+    # messages.pop(0)
     messages.append({"role": "user", "content": "ALL PARTS SENT"})
     response = openai.ChatCompletion.create(model=chat_model, messages=messages)
     final_response = response.choices[0].message["content"].strip()
     responses.append(final_response)
+    # print(messages)
 
     return responses
 
@@ -112,10 +118,10 @@ if __name__ == "__main__":
 
     # Define your prompt
     prompt_text = "Write me a file that I can transfer to a Raspberry Pi chip that will contain operating " \
-                  "instructions for the capsule where you can control the lights and temperature and the " \
-                  "frequencies and smells that are activated in the capsule, at suitable times according to a text" \
+                  "instructions for a capsule where you can control the lights and temperature and the " \
+                  "frequencies and smells that are activated in the capsule, at according times to a text" \
                   " file that dubs the capsule, together with instructions that describes when to activate everything" \
-                  ". first the instructions and then the text file"
+                  ". first the instructions and then the dub file,please don't reply with the text translated"
 
     # Send the file content & instruction to ChatGPT
     answers = send(prompt=prompt_text, text_data=file_content, instruction_data=instruction_content)
