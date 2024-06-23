@@ -3,7 +3,7 @@ import openai
 import tiktoken
 
 # set the api for chatcpt
-openai.api_key = 'sk-proj-KT3Qo5W5cIF8l5DnJxINT3BlbkFJclvUJVTsCF3ccNcefcgr'
+openai.api_key = 'sk-proj-611ezXEzdT6v9R7Ofv1TT3BlbkFJdqm7QgqpbuNd2qVRNUdq'
 
 
 def read_file_content(file_path1):
@@ -65,7 +65,7 @@ def send(
             "role": "user",
             "content": "To provide the context for the above prompt, I will send you text in parts. When I am "
                        "finished, I will tell you 'ALL PARTS SENT'. Do not answer until you have received all"
-                       " the parts.",
+                       " the parts. the instruction file:",
         },
     ]
 
@@ -73,11 +73,15 @@ def send(
     response = openai.ChatCompletion.create(model=chat_model, messages=messages)
     chatgpt_response = response.choices[0].message["content"].strip()
     responses.append(chatgpt_response)
+    # print("response")
+    # print(responses)
+    # print("message")
     # print(messages)
     # print(chatgpt_response)
     messages.pop(2)
     messages.pop(1)
-    messages.pop(0)
+    # messages.pop(0)
+    # breakpoint()
 
     for chunk in chunks:
         messages.append({"role": "user", "content": chunk})
@@ -101,7 +105,7 @@ def send(
     response = openai.ChatCompletion.create(model=chat_model, messages=messages)
     final_response = response.choices[0].message["content"].strip()
     responses.append(final_response)
-    # print(messages)
+    print(messages)
 
     return responses
 
