@@ -5,7 +5,7 @@ from openai import OpenAI
 
 # set the api for chatcpt
 client = OpenAI(
-    api_key='sk-proj-5UKwrYz7c68KwAS10u4jT3BlbkFJIQBw280dSiJnjKaWuW6V'
+    api_key='sk-proj-9LAOIeJi7GYyABtZnPuZT3BlbkFJScYVVul5likSdyzbcDgF'
 )
 
 
