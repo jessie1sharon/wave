@@ -1,14 +1,22 @@
 import openai
-# from chatgptmax import send
+import os
 import tiktoken
+from openai import OpenAI
 
 # set the api for chatcpt
-openai.api_key = 'sk-proj-611ezXEzdT6v9R7Ofv1TT3BlbkFJdqm7QgqpbuNd2qVRNUdq'
+client = OpenAI(
+    api_key='sk-proj-5UKwrYz7c68KwAS10u4jT3BlbkFJIQBw280dSiJnjKaWuW6V'
+)
 
 
 def read_file_content(file_path1):
     with open(file_path1, 'r', encoding='utf-8') as file:
         return file.read()
+
+
+def write_file_content(file_path2, lines):
+    with open(file_path2, 'a', encoding='utf-8') as file:
+        file.write(lines)
 
 
 def send(
@@ -70,18 +78,12 @@ def send(
     ]
 
     first = messages.append({"role": "user", "content": instruction_data})  # send the API the instruction file
-    response = openai.ChatCompletion.create(model=chat_model, messages=messages)
-    chatgpt_response = response.choices[0].message["content"].strip()
+    response = client.chat.completions.create(messages=messages, model=chat_model)
+    chatgpt_response = response.choices[0].message.content.strip()
     responses.append(chatgpt_response)
-    # print("response")
-    # print(responses)
-    # print("message")
-    # print(messages)
-    # print(chatgpt_response)
     messages.pop(2)
     messages.pop(1)
-    # messages.pop(0)
-    # breakpoint()
+    messages.pop(0)
 
     for chunk in chunks:
         messages.append({"role": "user", "content": chunk})
@@ -91,45 +93,39 @@ def send(
             sum(len(tokenizer.encode(msg["content"])) for msg in messages)
             > model_token_limit
         ):
-            messages.pop(1)  # Remove the oldest chunk
+            messages.pop(0)  # Remove the oldest chunk
 
-        response = openai.ChatCompletion.create(model=chat_model, messages=messages)
-        chatgpt_response = response.choices[0].message["content"].strip()
+        response = client.chat.completions.create(messages=messages, model=chat_model)
+        chatgpt_response = response.choices[0].message.content.strip()
         responses.append(chatgpt_response)
-        # print(messages)
         messages.pop(0)
 
     # Add the final "ALL PARTS SENT" message
-    # messages.pop(0)
     messages.append({"role": "user", "content": "ALL PARTS SENT"})
-    response = openai.ChatCompletion.create(model=chat_model, messages=messages)
-    final_response = response.choices[0].message["content"].strip()
+    response = client.chat.completions.create(messages=messages, model=chat_model)
+    final_response = response.choices[0].message.content.strip()
     responses.append(final_response)
-    print(messages)
 
     return responses
 
 
 if __name__ == "__main__":
-    # Specify the path to your file
+    # Specify the path to the files
     file_path = "brain_massage.txt"
 
     instruction_path = "instructions.txt"
 
+    prompt_path = "prompt.txt"
+
     # Read the content of the files
     file_content = read_file_content(file_path)
     instruction_content = read_file_content(instruction_path)
-
-    # Define your prompt
-    prompt_text = "Write me a file that I can transfer to a Raspberry Pi chip that will contain operating " \
-                  "instructions for a capsule where you can control the lights and temperature and the " \
-                  "frequencies and smells that are activated in the capsule, at according times to a text" \
-                  " file that dubs the capsule, together with instructions that describes when to activate everything" \
-                  ". first the instructions and then the dub file,please don't reply with the text translated"
+    prompt_content = read_file_content(prompt_path)
 
     # Send the file content & instruction to ChatGPT
-    answers = send(prompt=prompt_text, text_data=file_content, instruction_data=instruction_content)
+    answers = send(prompt=prompt_content, text_data=file_content, instruction_data=instruction_content)
 
     # Print the responses
     for answer in answers:
-        print(answer)
+        write_file_content("chat_result.txt", answer)
+        # print(answer)
