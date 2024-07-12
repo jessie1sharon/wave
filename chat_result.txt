@@ -1,47 +1,32 @@
-PART 1:
+ALL PARTS SENT. 
 
-Operating Instructions:
+Instructions for Use:
 Frequencies:
-Alpha Frequency - When one of the following words appears, release, calm, relax, breathe, forgive, or words from the same root
-Beta Frequency - When one of the following words appears, think, listen, learn, stand up or words from the same root
-Theta Frequency - When one of the following words appears, imagine, invest, quiet, stop, or words from the same root
+Alpha Frequency - when any of the following words appear, release, calm, relax, breathe, forgive or words from the same root.
+Beta Frequency - when any of the following words appear, think, listen, learn, stand up or words from the same root.
+Theta Frequency - when any of the following words appear, imagine, invest, quiet, stop or words from the same root.
 
 Lights:
-When referring to lights, appropriate lights will be activated in the capsule, and when calming is desired, the lights in the capsule will dim
-When a decrease in light is described, we will lower the light in the capsule from top to bottom, and if an increase in light is described, we will raise the lights slowly and gently from bottom to top
+When referring to lights, activate appropriate lights in the capsule and when relaxation is desired, dim the lights in the capsule.
+When a decrease in light is described, lower the light in the capsule from top to bottom, and if an increase in light is described, raise the lights slowly and gently from bottom to top.
 
 Scents:
-Lavender to create a sense of calmness
-Geranium or ginger or citrus fruits to uplift the mood and provide a sense of optimism
-Cinnamon for a sense of control and proper body activity
-Rose scent for relaxation and a good mood state
-Patchouli for better meditation state
+Lavender to create a sense of calmness.
+Geranium or ginger or citrus fruits to uplift mood and provide a sense of optimism.
+Cinnamon for a sense of control and proper body function.
+Rose scent for tranquility and good mental state.
+Patchouli for entering a better meditative state.
 
 Temperature:
-When the text describes a decrease of any kind, we will slowly lower the temperature to make it noticeable
-And accordingly for increasing the temperature
+When the text describes a decrease of any kind, gradually lower the temperature as well so it is perceptible. Similarly, for an increase in temperature, act accordingly. 
 
-PART 2:
+Dub file: capsule_01.txt
+Activation Times:
+- 7:00 AM: Alpha Frequency, Lavender scent, Lights at medium intensity, Normal Temperature
+- 10:00 AM: Beta Frequency, Geranium scent, Dimmed Lights, Decreased Temperature
+- 1:00 PM: Theta Frequency, Citrus scent, Bright Lights, Increased Temperature
+- 4:00 PM: Alpha Frequency, Cinnamon scent, Dimmed Lights, Normal Temperature
+- 7:00 PM: Theta Frequency, Patchouli scent, Bright Lights, Decreased Temperature
+- 10:00 PM: Beta Frequency, Rose scent, Lights off, Normal Temperature
 
-ALL PARTS SENT.עתקת הודעת קול: שלום, ברוכות הבאות לתרגיל מסאז למוח. מטרת התרגיל היא לשחרר את הלחץ, הדאגות, המחשבות הטורדניות, וכמובן את הרגשות שמושכים אתכם למטה בעקבות כפתור הפנימי שלכם הלחוץ. זה מסייע להכניס אתכם למצב מדיטטיבי שמאפשר לכם חופש ושלווה. אני תומכת ומכוונת אתכם למקום שקט ורגוע שיעזור לכם לשחרר ולהתרגע. תוכלו להפנות את כל מה שהיה היום ולהרגיש בנוח בזמן התרגיל. תכניסו המון אוויר ותשחררו. נשימה עמוקה ושחרור. חשבות נפילות ושלווה. נפגש בסוף התהליך. תודה.0:11:32.700000
- נסו להביא את תשומת לבכם חזרה לנשימה עמוקה כמו שעשיתם כשהתחלתם ישבו שם לבדו כמה זמן שתרצו עד שתרגישו שאתן מוכנות לצאת בשלום מהמקום הבטוח
-0:11:47.900000
-אם רצוי הכנסו יד ביד ולבטיח ונסו לחנוק כמה עצמים לאחר צאת לצד שליש ספיר ובשקט לשדים כפי שהיו חייבים לזמה טובה אתן יכולות לחשוב על זה כהזמה הקדושה שלכן כשאתן הולכות לבית הכנסת או לחדר שחדש בציון הבית שלכם
-0:12:00.400000
- נסגר את המחשב העליון שאור ניכר ואתן מחזיקות את ידכם בעצמן אפשר לקחת בשתי ידיים ביחד
-0:12:08.500000
- ממש נסו להרגיש מה זה אומר להיות יחד עם ידידים עם ידידות מה זה אומר כשאף אחד מאיתן לא טוב נסו לזכור מתי בעולם אתן חשובות למישהו ביותר שברקתן בעולם אתן באמת חיכו לקרוב אתן התמוכה והאזהרה שאחד מהן אמר האם זה איש שרק חי או איש שכבר לא קיים בהכרה מוחלטת
-0:12:28.300000
- האם זה כאשר שהקבר סגור הסלמר לכם לעצמכם הפרח שלכם לקרות הקבר אולי רק כיכוכב או כאות או אצילות בכל אופן מאוד ניתן להתחשב עזרו לי רגע בזמן ומחדשו ביחד
-0:12:44.900000
- את המרקם של מרכז היינו מופשטים מורכבים מי יותר מבגלים של מחוות תודה לפני מרכז החיים העץ המעמד לימים מבטיח שכן תמיד יש שם
-0:13:06.700000
- נסה לקחת בפסוק או במסעכי של העובי בידיהם כשאתן חוזרות מבטא נכון מובא לי רגעי העירבה שלי אתן רואות כמה השניים חשובים לשליח לכן אני רואה מה שאני מבין גובכתי שלו 
-0:13:24.800000
- ואני מודה לכם שנגע הוא תורת התפתחות חיובית באיזון ומאור לנפטר ואני ממליץ לכם לנתק קשר מאישור שלו בלימוד השוקנות שיש במקום נשים שמעת דבר ששמעתי על הגשני ביטחתך לידיו רחמנים אל ניבאן
-0:13:42.200000
- מגיעה מהיכולת עת אל מעלו ושיבע את במהאות שחיתה אישית באפאכה שינא תעדור לאל כי דבר השימוב אף אפשר ואת תנדם ועזור לשלילתר הקס ואת הנהגות בריתה לא נמון כל שבוט
-0:14:03
- לא שנאה ׄן תם דרכות חיים עלוה דמות דורא ואפי בזה הן דנשראב לכם אמור טוב כי עם שিיטתי
-0:14:21.400000
- לשלמת בדמת לכם הגדוג בן נור בלי ולא שתבעץ תיפח את השחו קמת בכחול מיד לכם אין במלכת מירואים בער אילי כי אני גדאהבו את הרגע ואת עצמכם עברו שיחה ברוח הסליחה בין הקווים בין השורות לקחת אחריות לחפש תוצאות נחמדות בשביל להטיב לשים את הדרך לשאול שאלות עם חבר הרחיבו את המחשבה שלכם רק נסו להתנהל תוך מרחב של כולכם המושבע הבטוח רק כשהאיו אני פגעתי בך כשהכתר רגע לי ביסוד להתפנות משם ולהקיף צפיתי נפשלתי שוב נפשי נשברתי בתוך קפל הקרבה ופתאומי התעוררתי עם כוח חדש ועין מעוררת.ת. אז תודה על הזמן שלכן ועל ההזדמנות לשחרר כל מה ששלילי ולהודות על כל מה שטוב בחיים שלכן. ממש מרגע זה תוכלו להתמקד בחיוביות ובשחרור מכל השליליות שעומדות בדרככן. אני כאן לכל שאלה ולכל דבר שאתן צריכות.תודה על ההזמנה לדמיון נעים. איך נראה היום המושלם שלך? האם את מרגישה רגועה ושקטה? האם חשוב לך לקחת החלטות שתשפיעו על חייך בצורה משמעותית? מהן אלה? תיהני מהדמיון ואל תשכחי לנשום עמוק ולהתעורר בשמחה ובאנרגיה חיובית.Great! Let me know if you need any further assistance with those parts.
+Please ensure to follow the activation times and corresponding instructions for optimal use of the capsule.בדלת אבל אני צמאה לתחושה הזו. אז היכנסו לתרגיל, היתרון הוא בעזרה שיש לו לך לשחרר את כל המתחים והלחצים שבנראה לך. הרגע הזה שיוכל להוביל אותך אל רוגע ושלווה תמיד המלכה, עדי רודניצקי.לגלות את הרגשות ולהתמודד איתם בצורה אמיתית. כל מה שאתן צריכות לעשות זה לקחת את הזמן הנדרש לבצע את התהליך הזה ולהתמקד ברגע הנוכחי. תזכרו שאתן במקום בטוח ושאתן רשאיות להרגיש כל רגע באופן אמיתי. אני כאן לתמיכה ולהמשך התהליך.תתייחסו אל הרגשות שעולים בכם בתוך החדר הזה ותפיקו מהם את הלקח החיובי שיכול להיות. זהו תהליך משמעותי שיעזור לכם לחוות את הרגשות בצורה חיובית ולהשקיע את האנרגיה שבכם בצורה חיובית ומועילה. נסו להירגע ולהתחבר לרגשות שעולים בכם, ותמשיכו בתהליך שחרור בשקט וברוגע.אני מבינה שהגעתי לכאן באנרגיה שנוגעת בשליליות ואני מצטערת על כך. אני מתנצלת על כל נזק שאולי גרמתי. אני משחררת את עצמי מכל כאב ושליליות ומתכוונת להתמקד בחיוביות ובשלום הפנימי שלי ושל הסביבה שלי. אני מבינה כי הכפתור הזה שהיה מופעל יכול להנחית אותי במקומות שלא הייתי רוצה להיות בהם, ולכן אני שוחררת את עצמי ממנו ומאפשרת לעצמי להתבנסס על כל הטוב שבחיים שלי. אני מודה על העזרה והנחיה שמתקבלת מקורות שונים וקרובים לי, ואני מתכוונת לחיים של קליטה ושמחה. שני התודה לכל אנשי הסביבה שלי שמכירים וקרובים לי, ואני מתחייבת להתמקד בטוב ובאהבה. אני מודה על הרגע הזה ועל אפשרות לחדש ולשחרר את העבר. בזמן שאני מדברת עם עצמי, אני יודעת שאני נכנסת למסע של שינוי ושלב חדש של התפשטות ושחרור. אני כאן כדי להתפתח ולהתפשט לטובתי ולטובת אלו שמסביבי. בכל הקשור לעבר מוקדם או מאוחר, אני תודה ומשחרת אותו, משחררת ומתמקדת בשליליות ובידידות. מי שלא מבין את התהליך שאני עוברת איתו, הוא מזמן לבחור השתחררות ושיחרור גם מהכוחות השליליים בחיים שלו. אני נכנסת למרחב של שחרור מוחלט ואהבה במטרה ליצור אל המציאות שאני מתכננת להגיע אליה. תודה לכולם על הנגיעה וההיגיון במקומות הרגישים שאני עוברת, ולכך אני מודה ומשא gaps  תודה על ההדרכה. אני ממש נודה על הזמן ששיבחת איתי. אני מבינה עכשיו שאני צריכה לקחת שלוש החלטות חשובות ולדמיין את היום המושלם שלי. אשקור את זה ואתפעל לפי ההדרכה שלך. אודה לך על כל המעגלים וההנחיות.Great, I have received all parts of the message. How can I assist you today?
